@@ -86,6 +86,8 @@ script:
   # Build for Ender-2
   # --board Sanguino:avr:sanguino:cpu=atmega1284p
   #
+  - restore_configs
+  - use_example_configs Creality/Ender-2
   - opt_set MOTHERBOARD BOARD_MELZI_CREALITY
   - opt_set DISABLE_BOOT
   - build_marlin
