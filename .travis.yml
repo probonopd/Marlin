@@ -27,9 +27,11 @@ install:
   - tar xf arduino-1.8.5-linux64.tar.xz
   - sudo mv arduino-1.8.5 /usr/local/share/arduino
   - ln -s /usr/local/share/arduino/arduino ${TRAVIS_BUILD_DIR}/buildroot/bin/arduino
+  #
+  # Install: Sanguino board
   - arduino --pref "boardsmanager.additional.urls=https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json" --save-prefs
   - arduino --install-boards Sanguino:avr
-  - arduino --board Sanguino:avr --save-prefs
+  - arduino --board Sanguino:avr:sanguino_atmega1284p --save-prefs
   #
   # Install: LiquidCrystal_I2C library
   - git clone https://github.com/kiyoshigawa/LiquidCrystal_I2C.git
@@ -73,21 +75,6 @@ before_script:
   - cat ${TRAVIS_BUILD_DIR}/Marlin/_Version.h
   #
 script:
-  #
-  # Backup Configuration.h, Configuration_adv.h, and pins_RAMPS.h
-  #
-  - cp Marlin/Configuration.h Marlin/Configuration.h.backup
-  - cp Marlin/Configuration_adv.h Marlin/Configuration_adv.h.backup
-  - cp Marlin/pins_RAMPS.h Marlin/pins_RAMPS.h.backup
-  #
-  # Build with the default configurations
-  #
-  - build_marlin
-  #
-  # Build for Ender-2
-  # --board Sanguino:avr:sanguino:cpu=atmega1284p
-  #
-  - restore_configs
   - use_example_configs Creality/Ender-2
   - opt_set MOTHERBOARD BOARD_MELZI_CREALITY
   - opt_set DISABLE_BOOT
