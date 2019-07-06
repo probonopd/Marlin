@@ -43,5 +43,6 @@ script:
   - sed -i -e 's|#define SHOW_CUSTOM_BOOTSCREEN|//#define SHOW_CUSTOM_BOOTSCREEN|g' Marlin/Configuration.h # Make it stock
   - sed -i -e 's|#define CUSTOM_STATUS_SCREEN_IMAGE|//#define CUSTOM_STATUS_SCREEN_IMAGE|g' Marlin/Configuration.h # Make it stock
   # opt_set MOTHERBOARD BOARD_MELZI_CREALITY
-  # opt_set DISABLE_BOOT
+  - opt_enable DISABLE_BOOT
+  - opt_enable LIN_ADVANCE
   - build_marlin
