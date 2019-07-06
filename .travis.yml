@@ -29,6 +29,7 @@ install:
   - ln -s /usr/local/share/arduino/arduino ${TRAVIS_BUILD_DIR}/buildroot/bin/arduino
   - arduino --pref "boardsmanager.additional.urls=https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json" --save-prefs
   - arduino --install-boards Sanguino:avr
+  - arduino --board Sanguino:avr --save-prefs
   #
   # Install: LiquidCrystal_I2C library
   - git clone https://github.com/kiyoshigawa/LiquidCrystal_I2C.git
