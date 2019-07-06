@@ -47,4 +47,13 @@ script:
   - opt_enable LIN_ADVANCE
   # build_marlin
   - arduino --verify --board Sanguino:avr:sanguino:cpu=atmega1284p --pref build.path=build Marlin/Marlin.ino
-  - ls -lh
+  - find build/
+
+after_success:
+  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+  - bash upload.sh build/*.hex
+
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
