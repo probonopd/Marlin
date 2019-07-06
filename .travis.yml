@@ -39,6 +39,7 @@ before_script:
 
 script:
   - use_example_configs Creality/Ender-2
+  - sed -i -e 's|//#define FAN_MAX_PWM 128|#define FAN_MAX_PWM 25|g' Marlin/Configuration_adv.h // 10% fan speed for Petsfang to fix layer bonding
   - opt_set MOTHERBOARD BOARD_MELZI_CREALITY
   - opt_set DISABLE_BOOT
   - build_marlin
