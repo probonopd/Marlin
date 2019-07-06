@@ -45,4 +45,6 @@ script:
   # opt_set MOTHERBOARD BOARD_MELZI_CREALITY
   - opt_enable DISABLE_BOOT
   - opt_enable LIN_ADVANCE
-  - build_marlin
+  # build_marlin
+  - arduino --verify --board Sanguino:avr:sanguino:cpu=atmega1284p --pref build.path=build Marlin/Marlin.ino
+  - ls -lh
