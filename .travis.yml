@@ -19,7 +19,7 @@ install:
   # Install Sanguino board
   - arduino --pref "boardsmanager.additional.urls=https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json" --save-prefs
   - arduino --install-boards Sanguino:avr
-  - arduino --board Sanguino:avr:sanguino_atmega1284p --save-prefs
+  - arduino --board Sanguino:avr:atmega1284p --save-prefs
   # Install libraries
   - cd /usr/local/share/arduino/libraries/
   - git clone https://github.com/kiyoshigawa/LiquidCrystal_I2C.git
