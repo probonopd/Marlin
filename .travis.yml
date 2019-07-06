@@ -28,7 +28,7 @@ install:
   - sudo mv arduino-1.8.5 /usr/local/share/arduino
   - ln -s /usr/local/share/arduino/arduino ${TRAVIS_BUILD_DIR}/buildroot/bin/arduino
   - arduino --pref "boardsmanager.additional.urls=https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json" --save-prefs
-  - arduino --install-boards sanguino:atmega1284p
+  - arduino --install-boards Sanguino:avr
   #
   # Install: LiquidCrystal_I2C library
   - git clone https://github.com/kiyoshigawa/LiquidCrystal_I2C.git
@@ -84,7 +84,8 @@ script:
   - build_marlin
   #
   # Build for Ender-2
+  # --board Sanguino:avr:sanguino:cpu=atmega1284p
   #
-  - opt_set MOTHERBOARD BOARD_RAMPS_14_EEB
+  - opt_set MOTHERBOARD BOARD_MELZI_CREALITY
   - opt_set DISABLE_BOOT
   - build_marlin
