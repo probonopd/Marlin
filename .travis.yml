@@ -42,6 +42,6 @@ script:
   - sed -i -e 's|//#define FAN_MAX_PWM 128|#define FAN_MAX_PWM 25|g' Marlin/Configuration_adv.h # 10% fan speed for Petsfang to fix layer bonding
   - sed -i -e 's|#define SHOW_CUSTOM_BOOTSCREEN|//#define SHOW_CUSTOM_BOOTSCREEN|g' Marlin/Configuration.h # Make it stock
   - sed -i -e 's|#define CUSTOM_STATUS_SCREEN_IMAGE|//#define CUSTOM_STATUS_SCREEN_IMAGE|g' Marlin/Configuration.h # Make it stock
-  - opt_set MOTHERBOARD BOARD_MELZI_CREALITY
+  # opt_set MOTHERBOARD BOARD_MELZI_CREALITY
   # opt_set DISABLE_BOOT
   - build_marlin
